@@ -1,5 +1,4 @@
 
-import 'dart:ffi';
 
 class Producto {
 
@@ -39,18 +38,18 @@ class ProductosCongelados extends Producto{
 class CongeladosAire extends ProductosCongelados{
 
   //atributos
-  Double? porcentNitrogeno;
-  Double? porcentOxigeno;
-  Double? porcentDioxidoCarbono;
-  Double? porcentVaporAgua;
+  double? porcentNitrogeno;
+  double? porcentOxigeno;
+  double? porcentDioxidoCarbono;
+  double? porcentVaporAgua;
   
 }
 
 class CongeladosAgua extends ProductosCongelados{
 
   //atributos
-  Double? gramosSal;
-  Double? litrosAgua;
+  double? gramosSal;
+  double? litrosAgua;
   String? infoSanidad;
   
 }
@@ -59,6 +58,6 @@ class CongeladosNitrogeno extends ProductosCongelados{
 
   //atributos
   String? metodoCongelacion;
-  Double? segundosExposicion;
+  double? segundosExposicion;
   
 }
