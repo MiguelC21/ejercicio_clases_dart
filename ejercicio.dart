@@ -14,7 +14,7 @@ String? paisOrigen;
 
 
 // __________________________________________
-//CLASES QUE HEREDAN DE RPODUCTOS//
+//CLASES QUE HEREDAN DE LA CLASE PRODUCTO//
 
 //productos frescos//
 class ProductosFrescos implements Producto{
