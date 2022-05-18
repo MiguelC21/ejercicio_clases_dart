@@ -111,7 +111,7 @@ class CongeladosAgua implements ProductosCongelados{
 
   double? gramosSal;
   double? litrosAgua;
-  String? infoSanidad;
+  String? infoSalinidad;
   //constructor
   CongeladosAgua(
     this.fechaCaducidad,
@@ -120,7 +120,7 @@ class CongeladosAgua implements ProductosCongelados{
     this.paisOrigen,
     this.temperaturaMantenimientoR,
     this.gramosSal,
-    this.infoSanidad,
+    this.infoSalinidad,
     this.litrosAgua
   );
   
