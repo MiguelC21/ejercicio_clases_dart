@@ -1,67 +1,80 @@
-
+void main() {
+  print('Hola');
+}
 
 //CLASE PADRE PRODUCTO//
 abstract class Producto {
+  //Atributos
+  String? fechaCaducidad;
+  String? loteNumero;
+  String? fechaEnvasado;
+  String? paisOrigen;
 
-//Atributos
-String? fechaCaducidad;
-String? loteNumero;
-String? fechaEnvasado;
-String? paisOrigen;
-
+  Producto ({
+    this.fechaCaducidad,
+    this.loteNumero,
+    this.fechaEnvasado,
+    this.paisOrigen,}
+  );
 }
-
-
 
 // __________________________________________
 //CLASES QUE HEREDAN DE LA CLASE PRODUCTO//
 
 //productos frescos//
-class ProductosFrescos implements Producto{
+class ProductosFrescos extends Producto{
 
-//atributos
-  String? fechaCaducidad;
-  String? fechaEnvasado;
-  String? loteNumero;
-  String? paisOrigen;
-  //constructor
-ProductosFrescos(
-  this.fechaCaducidad,
-  this.loteNumero,
-  this.fechaEnvasado,
-  this.paisOrigen 
-);
-
+  // constructor
+  ProductosFrescos({
+    required fechaCaducidad,
+    required loteNumero,
+    required fechaEnvasado,
+    required paisOrigen,}
+  ):super(
+    fechaCaducidad: fechaCaducidad,
+    loteNumero: loteNumero,
+    fechaEnvasado: fechaEnvasado,
+    paisOrigen: paisOrigen);
 }
 //productos refrigerados//
-class ProductosRefrigeraros implements Producto{
-
+class ProductosRefrigeraros extends Producto{
   //atributos
-  String? fechaCaducidad;
-  String? fechaEnvasado;
-  String? loteNumero;
-  String? paisOrigen;
-
   String? codigoOrganismoSupervAlimen;
   String? temperaturaMantenimientoR;
 
   //constructor
-  ProductosRefrigeraros(
-    this.fechaCaducidad,
-    this.fechaEnvasado,
-    this.loteNumero,
-    this.paisOrigen,
-    this.codigoOrganismoSupervAlimen,
-    this.temperaturaMantenimientoR
+  ProductosRefrigeraros({
+    required fechaCaducidad,
+    required fechaEnvasado,
+    required loteNumero,
+    required paisOrigen,
+    required this.codigoOrganismoSupervAlimen,
+    required this.temperaturaMantenimientoR
+  }):super(
+    fechaCaducidad: fechaCaducidad,
+    fechaEnvasado: fechaEnvasado,
+    loteNumero: loteNumero,
+    paisOrigen: paisOrigen
   );
 
 }
 //productos congelados//
-abstract class ProductosCongelados implements Producto{
+abstract class ProductosCongelados extends Producto{
 
   //atributos
   int? temperaturaMantenimientoR;
-
+  //Constructor
+  ProductosCongelados({
+    required fechaCaducidad,
+    required loteNumero,
+    required fechaEnvasado,
+    required paisOrigen,
+    required this.temperaturaMantenimientoR}
+  ):super(
+    fechaCaducidad: fechaCaducidad,
+    loteNumero: loteNumero,
+    fechaEnvasado: fechaEnvasado,
+    paisOrigen: paisOrigen);
 }
 
 
@@ -72,57 +85,56 @@ abstract class ProductosCongelados implements Producto{
 //CLASES QUE HEREDAN DE PRODUCTOS_CONGELADOS//
 
 //congelados por aire//
-class CongeladosAire implements ProductosCongelados{
+class CongeladosAire extends ProductosCongelados{
 
   //atributos
-  String? fechaCaducidad;
-  String? fechaEnvasado;
-  String? loteNumero;
-  String? paisOrigen;
-  int? temperaturaMantenimientoR;
-
   double? porcentNitrogeno;
   double? porcentOxigeno;
   double? porcentDioxidoCarbono;
   double? porcentVaporAgua;
   //constructor
-  CongeladosAire(
-    this.fechaCaducidad,
-    this.fechaEnvasado,
-    this.loteNumero,
-    this.paisOrigen,
-    this.temperaturaMantenimientoR,
-    this.porcentNitrogeno,
-    this.porcentOxigeno,
-    this.porcentDioxidoCarbono,
-    this.porcentVaporAgua
-  );
-  
+  CongeladosAire({
+    required fechaCaducidad,
+    required fechaEnvasado,
+    required loteNumero,
+    required paisOrigen,
+    required temperaturaMantenimientoR,
+    required this.porcentNitrogeno,
+    required this.porcentOxigeno,
+    required this.porcentDioxidoCarbono,
+    required this.porcentVaporAgua}
+  ): super(
+    fechaCaducidad: fechaCaducidad,
+    fechaEnvasado: fechaEnvasado,
+    loteNumero: loteNumero,
+    paisOrigen: paisOrigen,
+    temperaturaMantenimientoR:temperaturaMantenimientoR
+    );
 }
 //congelados por agua//
-class CongeladosAgua implements ProductosCongelados{
+class CongeladosAgua extends ProductosCongelados{
 
   //atributos
-  String? fechaCaducidad;
-  String? fechaEnvasado;
-  String? loteNumero;
-  String? paisOrigen;
-  int? temperaturaMantenimientoR;
-
   double? gramosSal;
   double? litrosAgua;
   String? infoSalinidad;
   //constructor
-  CongeladosAgua(
-    this.fechaCaducidad,
-    this.fechaEnvasado,
-    this.loteNumero,
-    this.paisOrigen,
-    this.temperaturaMantenimientoR,
-    this.gramosSal,
-    this.infoSalinidad,
-    this.litrosAgua
-  );
+  CongeladosAgua({
+    required fechaCaducidad,
+    required fechaEnvasado,
+    required loteNumero,
+    required paisOrigen,
+    required temperaturaMantenimientoR,
+    required this.gramosSal,
+    required this.infoSalinidad,
+    required this.litrosAgua}
+  ):super(
+    fechaCaducidad: fechaCaducidad,
+    fechaEnvasado: fechaEnvasado,
+    loteNumero: loteNumero,
+    paisOrigen: paisOrigen,
+    temperaturaMantenimientoR: temperaturaMantenimientoR,
+    );
   
 }
 //congelados por nitrogeno//
